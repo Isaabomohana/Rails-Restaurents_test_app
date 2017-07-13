@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Resturants</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Food Type</th>
+      <th>Info</th>
+      <th>Menu</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @resturants.each do |resturant| %>
+      <tr>
+        <td><%= resturant.name %></td>
+        <td><%= resturant.address %></td>
+        <td><%= resturant.food %></td>
+        <td><%= resturant.info %></td>
+        <td><%= link_to 'Show', resturant %></td>
+        <td><%= link_to 'Edit', edit_resturant_path(resturant) %></td>
+        <td><%= link_to 'Destroy', resturant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Resturant', new_resturant_path %>
+
+<br>
+
+<!-- <div id="map"></div> -->
+<iframe id="map" src="https://www.google.com/maps/d/embed?mid=1LrMj1xB5vtJi77svFyivuFkJmv8&hl=en" width="640" height="480"></iframe>
+<script>
+  function initMap() {
+    var uluru = {lat: 52.49532, lng: 13.39613};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 16,
+      center: uluru
+    });
+    var marker = new google.maps.Marker({
+      position: uluru,
+      map: map
+    });
+  }
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqCdAuPIMq4Oq0BuIxeEaO9fp0VEpdhjE&callback=initMap">
+</script>

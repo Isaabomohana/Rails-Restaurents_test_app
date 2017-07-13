@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @resturant.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @resturant.address %>
+</p>
+
+<div class="">
+  <iframe
+    width="450"
+    height="250"
+    frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed/v1/search?key=AIzaSyCqCdAuPIMq4Oq0BuIxeEaO9fp0VEpdhjE&q=<%= @resturant.address  %>" allowfullscreen>
+  </iframe>
+</div>
+
+<p>
+  <strong>Food Type:</strong>
+  <%= @resturant.food %>
+</p>
+
+<p>
+  <strong>Info:</strong>
+  <%= @resturant.info %>
+</p>
+<p>
+  <strong>Menu</strong>
+  <td><%= link_to 'Menu', menus_url %></td>
+</p>
+
+<%= link_to 'Edit', edit_resturant_path(@resturant) %> |
+<%= link_to 'Back', resturants_path %>
+<br>
+<h5>Rate Us : <%= SeemsRateable::Builder.build(@resturant, { disabled: false }) %> </h5>
+
+<p>
+  <a href="https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4&key=AIzaSyCqCdAuPIMq4Oq0BuIxeEaO9fp0VEpdhjE">
+  Google Places</a>
+</p>
+
+
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCqCdAuPIMq4Oq0BuIxeEaO9fp0VEpdhjE&sensor=true"
+  type="text/javascript"></script>
